@@ -1,7 +1,8 @@
 from gensim.models.fasttext import FastText as FT_gensim
 from gensim.test.utils import datapath
+import os
 
-def create_my_model(path='new_train.csv'):
+def create_my_model(path=os.getcwd()+'/new_train.csv'):
     print('Using gensim libraries...')
     
     # Set file names for train and test data
@@ -15,8 +16,8 @@ def create_my_model(path='new_train.csv'):
     model.train(
         corpus_file=corpus_file, 
         epochs=10,
-        total_examples=model_gensim.corpus_count, 
-        total_words=model_gensim.corpus_total_words,
+        total_examples=model.corpus_count, 
+        total_words=model.corpus_total_words,
         model='skipgram',
         iter=20,
         threads=1,
